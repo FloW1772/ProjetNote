@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import { getNotes, createNote, updateNote } from './api';
 import './App.css';
+import MenuPage from './components/MenuPage';
 
-function App() {
+function NotesPage() {
     const [notes, setNotes] = useState([]);
     const [currentNoteId, setCurrentNoteId] = useState(null);
     const [currentContent, setCurrentContent] = useState('');
     const [status, setStatus] = useState('');
 
-    // Charger toutes les notes au démarrage
     useEffect(() => {
         fetchNotes();
     }, []);
@@ -26,7 +28,6 @@ function App() {
         }
     };
 
-    // Sauvegarde automatique avec timeout
     useEffect(() => {
         if (!currentNoteId) return;
 
@@ -89,6 +90,18 @@ function App() {
                 <p className="status">{status}</p>
             </div>
         </div>
+    );
+}
+
+function App() {
+    return (
+        <Router>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<MenuPage />} />
+                <Route path="/notes" element={<NotesPage />} />
+            </Routes>
+        </Router>
     );
 }
 
