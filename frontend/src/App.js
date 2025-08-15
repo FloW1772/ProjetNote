@@ -4,6 +4,9 @@ import Navbar from './components/Navbar';
 import { getNotes, createNote, updateNote } from './api';
 import './App.css';
 import MenuPage from './components/MenuPage';
+import TodoPage from './components/TodoPage';
+import HabitudePage from './components/HabitudePage';
+import SecondBrain from './components/SecondBrain';
 
 function NotesPage() {
     const [notes, setNotes] = useState([]);
@@ -100,9 +103,11 @@ function App() {
             <Routes>
                 <Route path="/" element={<MenuPage />} />
                 <Route path="/notes" element={<NotesPage />} />
+                <Route path="/todo" element={<TodoPage />} />
+                <Route path="/habitude" element={<HabitudePage />} />
+                <Route path="/second-brain" element={<SecondBrain />} />
             </Routes>
         </Router>
     );
 }
-
 export default App;
