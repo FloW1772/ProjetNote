@@ -7,6 +7,8 @@ import MenuPage from './components/MenuPage';
 import TodoPage from './components/TodoPage';
 import HabitudePage from './components/HabitudePage';
 import SecondBrain from './components/SecondBrain';
+import Motivation from "./components/Motivation";
+import CalendarPage from "./components/CalendarPage";
 
 function NotesPage() {
     const [notes, setNotes] = useState([]);
@@ -106,6 +108,8 @@ function App() {
                 <Route path="/todo" element={<TodoPage />} />
                 <Route path="/habitude" element={<HabitudePage />} />
                 <Route path="/second-brain" element={<SecondBrain />} />
+                <Route path="/motivation" element={<Motivation />} />
+                <Route path="/calendar" element={<CalendarPage />} />
             </Routes>
         </Router>
     );
